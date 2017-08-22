@@ -1,0 +1,56 @@
+#info{
+	margin: 5px 5px 50px 5px;
+}
+
+.exampleInput{
+	background-color: #FFC;
+}
+
+.inputName{
+	background-color: #AFA;
+}
+
+.inputCourse:nth-child(-n+5){
+	background-color: #9CF;
+}
+
+.inputCourse:nth-child(n+6){
+	background-color: #FC9;
+}
+
+.inputName, .inputName>input, .exampleInput, .exampleInput>input, #inputEmail, #inputEmail>input, .inputCourse, .inputCourse>input{
+	font-size: 25px;
+	padding: 2px;
+}
+
+#inputEmail{
+	margin: 10px auto 10px auto;
+}
+
+#confirm{
+	margin: 20px auto 20px auto;
+}
+
+button[name="confirm"]{
+	border-radius: 10px;
+}
+
+#inputEmail>.inputField{
+	text-align:right;
+}
+
+#displayKey{
+	display: none;
+	max-width: 70%;
+	text-align: center;
+	margin: auto;
+}
+
+#key{
+	display: inline-block;
+	font-size: 40px;
+	border: 3px solid black;
+	padding: 5px;
+	margin: 10px;
+	background-color: yellow;
+}

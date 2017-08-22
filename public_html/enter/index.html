@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="/global/jquery.min.js"></script>
+		<script src="/global/global.js"></script>
+		<script src="/enter/script.js"></script>
+		<link rel="stylesheet" href="/global/global.css"/>
+		<link rel="stylesheet" href="/enter/style.css">
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="info">
+			Please enter your 8-digit course codes in the appropriate text box. <br/>
+			If you do not know a course code or are taking a spare for that period, please leave that option blank. <br/>
+			<div class="exampleInput">
+				<b>Example Course:</b>
+				<input type="text" size="12" value="SNC2D301"/>
+			</div>
+		</div>
+
+		<div id="input">
+			<div class="inputName">
+				Full Name: <input class="inputField" type="text" size="30"/>
+			</div>
+			<div class="inputCourse">
+				Semester 1 Period 1:
+				<input class="inputField" type="text" size="12"/>
+			</div>
+			<div class="inputCourse">
+				Semester 1 Period 2:
+				<input class="inputField" type="text" size="12"/>
+			</div>
+			<div class="inputCourse">
+				Semester 1 Period 3:
+				<input class="inputField" type="text" size="12"/>
+			</div>
+			<div class="inputCourse">
+				Semester 1 Period 4:
+				<input class="inputField" type="text" size="12"/>
+			</div>
+			<div class="inputCourse">
+				Semester 2 Period 1:
+				<input class="inputField" type="text" size="12"/>
+			</div>
+			<div class="inputCourse">
+				Semester 2 Period 2:
+				<input class="inputField" type="text" size="12"/>
+			</div>
+			<div class="inputCourse">
+				Semester 2 Period 3:
+				<input class="inputField" type="text" size="12"/>
+			</div>
+			<div class="inputCourse">
+				Semester 2 Period 4:
+				<input class="inputField" type="text" size="12"/>
+			</div>
+			<div id="inputEmail">
+			   <table>
+					<tbody>
+						<tr><td>Email (Optional):</td><td><input id="emailField" class="inputField" type="text" size="30"/></td></tr>
+						<tr><td>Confirm Email:</td><td><input id="confirmEmail" class="inputField" type="text" size="30"/></td></tr>
+					</tbody>
+				</table>
+				Your email will just be used for contact in case something goes wrong.
+			</div>
+		</div>
+
+		<div id="confirm">
+			Please check over your courses. Click Confirm to continue. <br/>
+			<button name="confirm">Confirm</button>
+		</div>
+
+		<div id="displayKey">
+			Your key is: <div id="key"></div>
+		</div>
+	</body>
+</html>

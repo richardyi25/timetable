@@ -1,0 +1,31 @@
+table{
+	display: none;
+	margin: 0px auto 0px auto;
+	border-collapse: separate;
+	border-spacing: 5px;
+}
+
+th, td{
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px 15px 5px 15px;
+	border: 2px solid black;
+}
+
+th, tr>td:nth-child(-n+1){
+}
+
+tr>td:nth-child(n+2){
+	border-style: solid;
+	margin: 10px;
+	position: relative;
+}
+
+/*
+.dot{
+	position: absolute;
+	font-size: 20px;
+	bottom: 0px;
+	left: 10px;
+}
+*/

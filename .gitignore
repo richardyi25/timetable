@@ -1,0 +1,6 @@
+*.php
+*.txt
+*.cerr
+data/
+.*.swp
+*.swp
