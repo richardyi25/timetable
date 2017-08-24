@@ -19,4 +19,5 @@ th{
 
 th:first-child{
 	background-color: white;
+	border-color: white;
 }

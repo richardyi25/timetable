@@ -8,7 +8,10 @@ function getColor(course){
 	var head = course.slice(0, 3);
 	var tail = course.slice(4, 6);
 	var hue = set[head].index / unique * 360 + (set[head].tails[tail]  / set[head].count) * (360 / unique);
-	var light = 90 - course[3] / 4 * 45 + '%';
+	if('1234567890'.indexOf(course[3]) != -1)
+		var light = 90 - course[3] / 4 * 45 + '%';
+	else
+		var light = 90 - (course.charCodeAt(3) - 65) / 6 * 45 + '%';
 	var sat = '100%';
 	return 'hsl(' + hue + ', ' + sat + ', ' + light + ')';
 }
