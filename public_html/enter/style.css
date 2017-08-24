@@ -6,19 +6,19 @@
 	background-color: #FFC;
 }
 
-.inputName{
+.inputName, .inputGrade, .inputType{
 	background-color: #AFA;
 }
 
-.inputCourse:nth-child(-n+5){
+.inputCourse:nth-child(-n+6){
 	background-color: #9CF;
 }
 
-.inputCourse:nth-child(n+6){
+.inputCourse:nth-child(n+7){
 	background-color: #FC9;
 }
 
-.inputName, .inputName>input, .exampleInput, .exampleInput>input, #inputEmail, #inputEmail>input, .inputCourse, .inputCourse>input{
+.inputType, .inputType>select, .inputGrade, .inputGrade>select, .inputName, .inputName>input, .exampleInput, .exampleInput>input, #inputEmail, #inputEmail>input, .inputCourse, .inputCourse>input{
 	font-size: 25px;
 	padding: 2px;
 }
@@ -31,7 +31,11 @@
 	margin: 20px auto 20px auto;
 }
 
-button[name="confirm"]{
+#confirm2{
+	display: none;
+}
+
+button{
 	border-radius: 10px;
 }
 

@@ -1,5 +1,5 @@
 //TODO: errortrap fully
-var name, courses, email, error, warning;
+var name, courses = [], email, error, warning;
 
 function displayKey(key){
 	$('#displayKey').show();
@@ -11,7 +11,7 @@ function displayKey(key){
 }
 
 function ajax(){
-	var courseText = "";
+	var courseText = "", grade = $('.inputGrade > select').val();
 
 	$('#info, #input, #confirm').hide();
 
@@ -21,6 +21,7 @@ function ajax(){
 		email = 'none';
 
 	$.get('/enter/script.php', {
+			grade: grade,
 			name: name,
 			courses: courseText,
 			email: email
@@ -31,75 +32,73 @@ function ajax(){
 	);
 }
 
+function okay(course){
+	if(course == 'SPARE')
+		return true;
+
+	//Condition 1: Must be 8 characters long
+	if(course.length != 8)
+		return false;
+
+	//Condition 2: Must be alphanumeric
+	for(var i = 0; i < course.length; i++)
+		if('1234567890QWERTYUIOPASDFGHJKLZXCVBNM'.indexOf(course[i]) == -1)
+			return false;
+
+	//Condition 3: 4th character must be a number unless it's an ESL or LWS course, in which case it must be A to F
+	if(course.slice(0, 3) == 'ESL' || course.slice(0, 3) == 'LWS'){
+		if('ABCDEF'.indexOf(course[3]) == -1)
+			return false;
+	}
+	else{
+		if('1234567890'.indexOf(course[3]) == -1)
+			return false;
+	}
+
+	//Condition 4: Class code must be 01 to 09
+	return Number.parseInt(course.slice(6)) < 10;
+}
+
 function checkCourses(){
+	var allOkay = true;
 	courses = [];
-	var error = [], warning = [];
 	var input = $('#input > .inputCourse .inputField');
 
-	for(var i = 0; i < input.length; i++){
+	//Reset
+	$('#confirm2').hide();
+	$('#warning').text('');
+
+	for(var i = 0; i < 8; i++){
+		//Reset
+		$(input[i]).css('border', '');
 		if(input[i].value == '')
-			courses.push('-');
+			courses[i] = 'SPARE';
 		else
-			courses.push(input[i].value.toUpperCase());
+			courses[i] = input[i].value.toUpperCase();
 	}
 
-	//error-trapping
-	for(var i = 0; i < courses.length; i++){
-		if(courses[i].includes(';')){
-			error.push(courses[i]);
+	for(var i = 0; i < 8; i++){
+		if(!okay(courses[i])){
+			$(input[i]).css('border-color', 'red');
+			allOkay = false;
 		}
 	}
 
-	//warning-trapping
-	for(var i = 0; i < courses.length; i++){
-		for(var j = 0; j < courses[i].length; j++){
-			if('1234567890QWERTYUIOPASDFGHJKLZXCVBNM-'.indexOf(courses[i][j]) == -1){
-				warning.push(courses[i]);
-				break;
-			}
-		}
+	if(!allOkay){
+		$('#warning').text('One or more courses doesn\'t follow regular course code rules. Are you sure you want to submit?');
+		$('#confirm2').show();
 	}
 
-	if(error.length > 0){
-		var message = "Error: The following courses are invalid:\n";
-
-		for(var i = 0; i < error.length; i++)
-			message += error[i] + '\n';
-
-		if(warning.length > 1){
-			message += "\nAdditionally, the following courses contain non-standard characters:\n";
-			for(var i = 0; i < error.length; i++)
-				message += warning[i] + '\n';
-		}
-
-		alert(message);
-		return false;
-	}
-
-	//if there are warnings but no errors
-	else if(warning.length > 0){
-		var message = "", answer;
-
-		message += "Warning: the following courses contain non-standard characters:\n";
-		for(var i = 0; i < warning.length; i++)
-			message += warning[i] + '\n';
-		message += "\nContinue anyways?";
-
-		answer = confirm(message);
-
-		return answer;
-	}
-
-	return true;
+	return allOkay;
 }
 
 function checkEmail(){
 	if($('#emailField').val() != $('#confirmEmail').val()){
-		alert("Your emails do not match.");
+		alert("Your emails do not match!");
 		return false;
 	}
 	else if($('#emailField').val().includes(';')){
-		alert("Your email contains illegal characters.");
+		alert("Your email contains illegal characters!");
 		return false;
 	}
 	else{
@@ -126,7 +125,16 @@ $(document).ready(function(){
 	$('button[name="confirm"]').click(function(){
 		// abusing short-circut mechanics
 		// only calls the next function if the one before returns true
-		if(checkName() && checkCourses() && checkEmail())
+		if(checkName() && checkEmail() && checkCourses())
 			ajax();
+	});
+
+	$('button[name="confirm2"]').click(function(){
+		if(checkName() && checkEmail())
+			ajax();
+	});
+
+	$('button[name="unconfirm"]').click(function(){
+		$('#confirm2').hide();
 	});
 });

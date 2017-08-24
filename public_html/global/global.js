@@ -16,8 +16,6 @@ function getData(callback){
 		courses = data.trim().split('\n');
 		for(var i = 0; i < courses.length; i++){
 			courses[i] = courses[i].slice(0, -1).split(';');
-			for(var j = 1; j < 9; j++)
-				courses[i][j] = courses[i][j].slice(0, -2) + '<br/>' + '•'.repeat(courses[i][j].slice(-2));// + '<br/>(' + courses[i][j].slice(-2) + ')';
 		}
 		callback(courses);
 	});

@@ -8,24 +8,15 @@ table{
 th, td{
 	border-radius: 5px;
 	text-align: center;
-	padding: 5px 15px 5px 15px;
+	padding: 7px;
 	border: 2px solid black;
 }
 
-th, tr>td:nth-child(-n+1){
+th{
+	font-weight: normal;
+	background-color: hsl(60, 100%, 80%);
 }
 
-tr>td:nth-child(n+2){
-	border-style: solid;
-	margin: 10px;
-	position: relative;
+th:first-child{
+	background-color: white;
 }
-
-/*
-.dot{
-	position: absolute;
-	font-size: 20px;
-	bottom: 0px;
-	left: 10px;
-}
-*/

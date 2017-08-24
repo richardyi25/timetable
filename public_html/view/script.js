@@ -1,5 +1,4 @@
-var unique = 0;
-var set = {};
+var unique = 0, set = {};
 
 // there's a lot of weird math but basically color is based on 3 factors
 // 1) Primarily, the first 3 characters of the course code is grouped into similar hues
@@ -24,11 +23,8 @@ function getBorderColor(course){
 function color(){
 	items = $('tbody > tr > td');
 	for(var i = 0; i < items.length; i++){
-		if(i % 9 != 0){
+		if(i % 10 > 1 ){
 			$(items[i]).css('background-color', getColor(items[i].innerHTML));
-			//$(items[i]).css('border-color', getBorderColor(items[i].innerHTML));
-			//$(items[i]).append('<div class="dot" style="color:' + getBorderColor(items[i].innerHTML) + ';">.</div>');
-			//TODO: fix
 		}
 	}
 
@@ -37,16 +33,29 @@ function color(){
 }
 
 function buildTable(courses){
+	//Add the dots
+	for(var i = 0; i < courses.length; i++)
+		for(var j = 2; j < 10; j++)
+			courses[i][j] = courses[i][j].slice(0, -2) + '<br/>' + '•'.repeat(courses[i][j].slice(-2));
+
 	var course, person, head, tail, row, classNum, table = $('tbody');
 	for(var i = 0; i < courses.length; i++){
 		person = courses[i];
 		row = '<tr>';
-		for(var j = 0; j < 9; j++){
+		for(var j = 0; j < 10; j++){
 			course = person[j];
-			head = course.slice(0, 3);
-			tail = course.slice(4, 6);
 
-			if(j > 0){ //if it's not a name field
+			if(j == 0){ //name field
+				row += '<td style="background-color:hsl(60, 100%, 80%)">' + course + '</td>';
+			}
+			else if(j == 1){ //grade field
+				row += '<td style="background-color: hsl(0, 0%, ' + ( 90 - (courses[i][j] - 9) * 15) + '%);">' + course + '</td>';
+			}
+			else{ //if it's not a name or grade field
+				head = course.slice(0, 3);
+				tail = course.slice(4, 6);
+
+				//some really weird data structure for hue calculation
 				if(set[head] === undefined){
 					set[head] = {
 						index: unique++,
@@ -59,13 +68,14 @@ function buildTable(courses){
 					if(set[head].tails[tail] === undefined)
 						set[head].tails[tail] = set[head].count++;
 				}
+				row += '<td>' + course + '</td>';
 			}
-			row += '<td>' + course + '</td>';
 		}
 		row += '</tr>';
 		table.append(row);
 	}
 
+	//after courses have been counted, color the table
 	color();
 }
 
