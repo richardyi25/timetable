@@ -122,6 +122,8 @@ function checkName(){
 }
 
 $(document).ready(function(){
+	topbar();
+
 	$('button[name="confirm"]').click(function(){
 		// abusing short-circut mechanics
 		// only calls the next function if the one before returns true

@@ -3,7 +3,14 @@
 }
 
 .exampleInput{
+	font-size: 30px;
+	padding: 5px;
+	margin: 5px;
 	background-color: #FFC;
+}
+
+.exampleInput>input{
+	font-size: 30px;
 }
 
 .inputName, .inputGrade, .inputType{
@@ -18,9 +25,13 @@
 	background-color: #FC9;
 }
 
-.inputType, .inputType>select, .inputGrade, .inputGrade>select, .inputName, .inputName>input, .exampleInput, .exampleInput>input, #inputEmail, #inputEmail>input, .inputCourse, .inputCourse>input{
+.inputGrade, .inputGrade>select, .inputName, .inputName>input, #inputEmail, #inputEmail>input, .inputCourse, .inputCourse>input{
 	font-size: 25px;
 	padding: 2px;
+}
+
+.inputGrade>select{
+	padding: 0px;
 }
 
 #inputEmail{

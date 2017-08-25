@@ -1,0 +1,22 @@
+#header{
+	font-weight: bold;
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+
+#email{
+	background-color: lightgray;
+	user-select: none;
+}
+
+.section{
+	margin: 40px 20px 40px 20px;
+}
+
+.question, .answer{
+	margin: 10px;
+}
+
+.question{
+	font-weight: bold;
+}

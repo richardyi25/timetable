@@ -32,7 +32,7 @@ function color(){
 	}
 
 	$('#loading').hide();
-	$('table').show();
+	$('#main').show();
 }
 
 function buildTable(courses){
@@ -49,7 +49,7 @@ function buildTable(courses){
 			course = person[j];
 
 			if(j == 0){ //name field
-				row += '<td style="background-color:hsl(60, 100%, 80%)">' + course + '</td>';
+				row += '<td>' + course + '</td>';
 			}
 			else if(j == 1){ //grade field
 				row += '<td style="background-color: hsl(0, 0%, ' + ( 90 - (courses[i][j] - 9) * 15) + '%);">' + course + '</td>';
@@ -80,8 +80,11 @@ function buildTable(courses){
 
 	//after courses have been counted, color the table
 	color();
+	$('table').trigger("update");
 }
 
 $(document).ready(function(){
+	topbar();
+	$('table').tablesorter();
 	getData(buildTable);
 });

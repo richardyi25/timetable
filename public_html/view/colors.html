@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="/global/jquery.min.js"></script>
+		<script src="/global/global.js"></script>
+		<script>
+			$(document).ready(function(){
+				topbar();
+			});
+		</script>
+		<link rel="stylesheet" href="/global/global.css"/>
+		<style>
+			body{
+				margin: 20px;
+			}
+
+			li{
+				margin: 10px;
+			}
+
+			b{
+				font-size: 22px;
+				display: block;
+				margin-bottom: 5px;
+			}
+		</style>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<h2>Colors</h2>
+		The colors of the tiles are based on 3 factors:
+		<ul>
+			<li>
+				<b>Course</b>
+				The first three characters of the course code determine the course. All courses in the same category will have similar hues.
+			</li>
+			<li>
+				<b>Course Type</b>
+				Specifically, the fifth and sixth character of the course describe the type of course it is. Different course types will differ in hue slightly.
+			</li>
+			<li>
+				<b>Grade</b>
+				The fourth character determines the grade (or level) of the course. The higher the grade, the darker the cell will be.
+			</li>
+		</ul>
+
+		<h2>Dots</h2>
+		The last two digits of your course code is your class code. The number of dots equals the value of the class code.
+
+		<div style="margin-top: 20px; font-size: 25px">
+			<a href="/view">Go back</a>
+		</div>
+	</body>
+</html>

@@ -1,5 +1,13 @@
-table{
+#main{
 	display: none;
+}
+
+#info{
+	text-align: center;
+	margin: 20px;
+}
+
+table{
 	margin: 0px auto 0px auto;
 	border-collapse: separate;
 	border-spacing: 5px;
@@ -8,16 +16,30 @@ table{
 th, td{
 	border-radius: 5px;
 	text-align: center;
-	padding: 7px;
+	padding: 6px 10px 6px 10px;
 	border: 2px solid black;
 }
 
 th{
 	font-weight: normal;
-	background-color: hsl(60, 100%, 80%);
 }
 
-th:first-child{
-	background-color: white;
-	border-color: white;
+th:nth-child(-n+6){
+	background-color: #CFF;
+}
+
+th:nth-child(1){
+	background-color: #FFC;
+}
+
+th:nth-child(2){
+	background-color: #CFC;
+}
+
+th:nth-child(n+7){
+	background-color: #FCC;
+}
+
+td:first-child{
+	background-color: beige;
 }

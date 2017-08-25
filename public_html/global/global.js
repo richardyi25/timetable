@@ -1,4 +1,4 @@
-var DEBUG = true;
+var DEBUG = false;
 
 function print(){
 	if(DEBUG)
@@ -21,10 +21,20 @@ function getData(callback){
 	});
 }
 
+function topbar(){
+	$.get('/global/topbar.html', function(data){
+		$('body').prepend(data);
+		$('body').show();
+	});
+}
+
 $(document).ready(function(){
-	//TODO: AJAX to topbar.html
-	if(window.location.origin == 'http://localhost:8000')
-		$('title').html('Local');
+	if(DEBUG){
+		if(window.location.origin == 'http://localhost:8000')
+			$('title').html('Local');
+		else
+			$('title').html('Live');
+	}
 	else
-		$('title').html('Live');
+		$('title').html('Mac Timetables');
 });

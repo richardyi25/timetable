@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script src="../global/jquery.min.js"></script>
-		<script src="../global/global.js"></script>
+		<script src="/global/jquery.min.js"></script>
+		<script src="/global/tablesorter.min.js"></script>
+		<script src="/global/global.js"></script>
 		<script src="/view/script.js"></script>
-		<link rel="stylesheet" href="../global/global.css"/>
+		<link rel="stylesheet" href="/global/global.css"/>
 		<link rel="stylesheet" href="/view/style.css"/>
 		<meta charset="UTF-8">
 		<title></title>
@@ -12,20 +13,25 @@
 
 	<body>
 		<div id="loading">Loading...</div>
-		<div>
+		<div id="main">
+			<div id="info">
+				Click on the headers to sort by that column <br/>
+				<a href="/view/colors.html">What do the colors and dots mean?</a>
+			</div>
+
 			<table>
 				<thead>
 					<tr>
-						<th></th>
+						<th>Name</th>
 						<th>Grade</th>
-						<th>Period<br/> 1</th>
-						<th>Period<br/> 2</th>
-						<th>Period<br/> 3</th>
-						<th>Period<br/> 4</th>
-						<th>Period<br/> 1</th>
-						<th>Period<br/> 2</th>
-						<th>Period<br/> 3</th>
-						<th>Period<br/> 4</th>
+						<th>S1 P1</th>
+						<th>S1 P2</th>
+						<th>S1 P3</th>
+						<th>S1 P4</th>
+						<th>S2 P1</th>
+						<th>S2 P2</th>
+						<th>S2 P3</th>
+						<th>S2 P4</th>
 					</tr>
 				</thead>
 				<tbody></tbody>
