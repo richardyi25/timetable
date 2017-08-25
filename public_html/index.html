@@ -4,14 +4,32 @@
 		<meta charset="UTF-8">
 		<title>Live</title>
 
-		<script src = "global/jquery.min.js"></script>
-		<script src = "global/global.js"></script>
+		<script src = "/global/jquery.min.js"></script>
+		<script src = "/global/global.js"></script>
+		<script src = "/script.js"></script>
 		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="global/global.css"/>
+		<link rel="stylesheet" href="/style.css"/>
 	</head>
 
 	<body>
-		This is a landing page.
-		It will contain links to an "enter" site and a "view" site.
-		It will also contain a topbar to random (about, FAQ, etc.) links.
+		<div id="all">
+			<div class="item">
+				Welcome to my site! <br/>
+				Click on a link above to get started. <br/>
+			</div>
+			<div class="item">
+				Click <a href="/enter">Add your classes</a> to input your classes into the database <br/>
+			</div>
+			<div class="item">
+				Click <a href="/view">View classes</a> to view your classmates' classes <br/>
+			</div>
+			<div class="item">
+				Click <a href="/faq">FAQ</a> if you have a question about the site <br/>
+			</div>
+			<div class="item">
+				Click <a href="/about">About</a> to learn about the site
+			</div>
+		</div>
 	</body>
 </html>

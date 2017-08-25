@@ -1,7 +1,7 @@
-var DEBUG = false;
+var LOCAL;
 
 function print(){
-	if(DEBUG)
+	if(LOCAL)
 		for(var i = 0; i < arguments.length; i++)
 			console.log(arguments[i]);	
 }
@@ -29,11 +29,9 @@ function topbar(){
 }
 
 $(document).ready(function(){
-	if(DEBUG){
-		if(window.location.origin == 'http://localhost:8000')
-			$('title').html('Local');
-		else
-			$('title').html('Live');
+	if(window.location.origin == 'http://localhost:8000'){
+		$('title').html('Local');
+		LOCAL = true;
 	}
 	else
 		$('title').html('Mac Timetables');

@@ -1,0 +1,12 @@
+#all{
+	margin: 50px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.item{
+	margin: 10px;
+	padding: 20px;
+	background-color: beige;
+	border-radius: 20px;
+}
