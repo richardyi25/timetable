@@ -1,4 +1,4 @@
-var unique = 0, set = {};
+var unique = 0, set = {}, courses = [];
 
 // there's a lot of weird math but basically color is based on 3 factors
 // 1) Primarily, the first 3 characters of the course code is grouped into similar hues
@@ -9,10 +9,10 @@ function getColor(course){
 	var tail = course.slice(4, 6);
 	var hue = set[head].index / unique * 360 + (set[head].tails[tail]  / set[head].count) * (360 / unique);
 	if('1234567890'.indexOf(course[3]) != -1)
-		var light = 100 - course[3] / 4 * 50 + '%';
+		var light = 90 - course[3] / 4 * 45 + '%';
 	else
 		var light = 90 - (course.charCodeAt(3) - 65) / 6 * 45 + '%';
-	var sat = '80%';
+	var sat = '100%';
 	return 'hsl(' + hue + ', ' + sat + ', ' + light + ')';
 }
 
@@ -35,11 +35,14 @@ function color(){
 	$('#main').show();
 }
 
-function buildTable(courses){
+function buildTable(){
+	var name = $('#dropdown').value();
+
 	//Add the dots
 	for(var i = 0; i < courses.length; i++){
-		for(var j = 2; j < 10; j++)
+		for(var j = 2; j < 10; j++){
 			courses[i][j] = courses[i][j].slice(0, -2) + '<br/>' + '•'.repeat(courses[i][j].slice(-2));
+		}
 	}
 
 	var course, person, head, tail, row, classNum, table = $('tbody');
@@ -84,8 +87,26 @@ function buildTable(courses){
 	$('table').trigger("update");
 }
 
+function dropdown(data){
+	var person, name;
+
+	courses = data;
+
+	for(var i = 0; i < courses.length; i++){
+		person = courses[i];
+		name = person[0];
+		print(name);
+
+		$('select').append('<option value="' + name + '">' + name + '</option>');
+	}
+}
+
 $(document).ready(function(){
 	topbar();
+	getData(dropdown);
 	$('table').tablesorter();
-	getData(buildTable);
+
+	$('#dropdown').mouseup(function(){
+		buildTable();
+	});
 });

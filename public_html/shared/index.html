@@ -4,19 +4,22 @@
 		<script src="/global/jquery.min.js"></script>
 		<script src="/global/tablesorter.min.js"></script>
 		<script src="/global/global.js"></script>
-		<script src="/view/script.js"></script>
+		<script src="/shared/script.js"></script>
 		<link rel="stylesheet" href="/global/global.css"/>
-		<link rel="stylesheet" href="/view/style.css"/>
+		<link rel="stylesheet" href="/shared/style.css"/>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
 
 	<body>
-		<div id="loading">Loading...</div>
+		<div id="select">
+			Select your name: <select id="dropdown"></select>
+		</div>
+
 		<div id="main">
 			<div id="info">
 				Click on the headers to sort by that column<br/>
-				<a href="/view/colors.html">What do the colors and dots mean?</a>
+				<a href="/shared/colors.html">What do the colors and dots mean?</a>
 			</div>
 
 			<table>

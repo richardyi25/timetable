@@ -9,8 +9,10 @@ function print(){
 function getData(callback){
 	var courses = [];
 	$.get('/global/global.php', function(data){
-		if(data == '') //if there is no data, abort
+		if(data == ''){ //if there is no data return empty array and abort
+			callback([]);
 			return;
+		}
 
 		courses = data;
 		courses = data.trim().split('\n');
