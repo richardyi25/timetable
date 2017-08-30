@@ -9,10 +9,10 @@ function getColor(course){
 	var tail = course.slice(4, 6);
 	var hue = set[head].index / unique * 360 + (set[head].tails[tail]  / set[head].count) * (360 / unique);
 	if('1234567890'.indexOf(course[3]) != -1)
-		var light = 100 - course[3] / 4 * 50 + '%';
+		var light = 100 - course[3] / 4 * 35 + '%';
 	else
-		var light = 90 - (course.charCodeAt(3) - 65) / 6 * 45 + '%';
-	var sat = '80%';
+		var sat = 90 - (course.charCodeAt(3) - 65) / 6 * 45 + '%';
+	var sat = '90%';
 	return 'hsl(' + hue + ', ' + sat + ', ' + light + ')';
 }
 
@@ -38,8 +38,12 @@ function color(){
 function buildTable(courses){
 	//Add the dots
 	for(var i = 0; i < courses.length; i++){
-		for(var j = 2; j < 10; j++)
-			courses[i][j] = courses[i][j].slice(0, -2) + '<br/>' + '•'.repeat(courses[i][j].slice(-2));
+		for(var j = 2; j < 10; j++){
+			if(courses[i][j].slice(-2) == 0)
+				courses[i][j] = courses[i][j].slice(0, -2) + '<br/>-';
+			else
+				courses[i][j] = courses[i][j].slice(0, -2) + '<br/>' + '•'.repeat(courses[i][j].slice(-2));
+		}
 	}
 
 	var course, person, head, tail, row, classNum, table = $('tbody');
