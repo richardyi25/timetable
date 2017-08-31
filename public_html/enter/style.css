@@ -50,6 +50,7 @@
 
 #confirm2{
 	display: none;
+	margin-top: 50px;
 }
 
 button{
@@ -74,4 +75,10 @@ button{
 	padding: 5px;
 	margin: 10px;
 	background-color: yellow;
+}
+
+.eight-digits{
+	font-size: 26px;
+	font-weight: bold;
+	color: red;
 }

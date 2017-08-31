@@ -70,7 +70,7 @@ function checkCourses(){
 
 	for(var i = 0; i < 8; i++){
 		//Reset
-		$(input[i]).css('border', '');
+		$(input[i]).css('background-color', '');
 		if(input[i].value == '')
 			courses[i] = 'SPARE';
 		else
@@ -79,14 +79,15 @@ function checkCourses(){
 
 	for(var i = 0; i < 8; i++){
 		if(!okay(courses[i])){
-			$(input[i]).css('border-color', 'red');
+			$(input[i]).css('background-color', 'red');
 			allOkay = false;
 		}
 	}
 
 	if(!allOkay){
-		$('#warning').text('One or more courses doesn\'t follow regular course code rules. Are you sure you want to submit?');
+		$('#warning').html('One or more courses doesn\'t follow regular course code rules.<br/>Please check that your courses are all <span class="eight-digits">8 digits</span>, and not 6 digits.<br/>Are you sure you want to submit?');
 		$('#confirm2').show();
+		$('#confirm2')[0].scrollIntoView();
 	}
 
 	return allOkay;

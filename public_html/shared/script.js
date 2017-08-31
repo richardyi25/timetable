@@ -19,13 +19,6 @@ function getColor(course){
 	return 'hsl(' + hue + ', ' + sat + ', ' + light + ')';
 }
 
-// border color based on class code
-function getBorderColor(course){
-	var classNum = course.slice(11, 13);
-	print(classNum);
-	return 'hsl(' + classNum / 10 * 360 + ', 100%, 50%)';
-}
-
 function color(){
 	items = $('tbody > tr > td');
 	for(var i = 0; i < items.length; i++){
@@ -43,16 +36,17 @@ function color(){
 }
 
 function buildTable(){
+	var course, person, head, tail, row, classNum, table = $('tbody');
 	var name = $('#dropdown').val(), match;
-	print(name);
+
+	table.empty();
+
+	if(name == "none")
+		return;
 
 	for(var i = 0; i < courses.length; i++)
 		if(courses[i][0] == name)
 			match = courses[i];
-
-	var course, person, head, tail, row, classNum, table = $('tbody');
-
-	table.empty();
 
 	for(var i = 0; i < courses.length; i++){
 		person = courses[i];
@@ -90,7 +84,6 @@ function buildTable(){
 		}
 
 		row += '</tr>';
-		print(row);
 		table.append(row);
 	}
 
