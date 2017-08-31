@@ -19,6 +19,16 @@ function getData(callback){
 		for(var i = 0; i < courses.length; i++){
 			courses[i] = courses[i].slice(0, -1).split(';');
 		}
+
+		//Sort by name
+		courses.sort(function(a, b){
+			if(a[0] < b[0])
+				return -1;
+			else if(a[0] > b[0])
+				return 1;
+			return 0;
+		});
+
 		callback(courses);
 	});
 }

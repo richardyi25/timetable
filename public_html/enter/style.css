@@ -13,8 +13,9 @@
 	font-size: 30px;
 }
 
-.inputName, .inputGrade, .inputType{
-	background-color: #AFA;
+.inputGrade, .inputGrade>select, .inputName, .inputName>input, #inputEmail, #inputEmail>input, .inputCourse, .inputCourse>input{
+	font-size: 25px;
+	padding: 2px;
 }
 
 .inputCourse:nth-child(-n+6){
@@ -25,9 +26,14 @@
 	background-color: #FC9;
 }
 
-.inputGrade, .inputGrade>select, .inputName, .inputName>input, #inputEmail, #inputEmail>input, .inputCourse, .inputCourse>input{
-	font-size: 25px;
-	padding: 2px;
+.inputName, .inputGrade, .inputType{
+	background-color: #AFA;
+	padding: 5px;
+}
+
+.inputGrade{
+	background-color: #F99;
+	padding: 5px 2px 5px 2px;
 }
 
 .inputGrade>select{

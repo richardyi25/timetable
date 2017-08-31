@@ -11,7 +11,7 @@ function getColor(course){
 	if('1234567890'.indexOf(course[3]) != -1)
 		var light = 100 - course[3] / 4 * 35 + '%';
 	else
-		var sat = 90 - (course.charCodeAt(3) - 65) / 6 * 45 + '%';
+		var light = 90 - (course.charCodeAt(3) - 65) / 6 * 45 + '%';
 	var sat = '90%';
 	return 'hsl(' + hue + ', ' + sat + ', ' + light + ')';
 }
